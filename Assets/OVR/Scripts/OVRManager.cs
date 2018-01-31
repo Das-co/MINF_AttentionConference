@@ -127,6 +127,16 @@ public class OVRManager : MonoBehaviour
 	public static event Action InputFocusLost;
 
 	/// <summary>
+	/// Occurs when System Overlay like Dashboard is Presented.
+	/// </summary>
+	public static event Action SystemOverlayPresented;
+
+	/// <summary>
+	/// Occurs when System Overlay like Dashboard is hidden.
+	/// </summary>
+	public static event Action SystemOverlayHide;
+
+	/// <summary>
 	/// Occurs when the active Audio Out device has changed and a restart is needed.
 	/// </summary>
 	public static event Action AudioOutChanged;
@@ -234,6 +244,18 @@ public class OVRManager : MonoBehaviour
 		get
 		{
 			return OVRPlugin.hasInputFocus;
+		}
+	}
+
+	private static bool _hadSystemOverlayPresented = false;
+	/// <summary>
+	/// If true, the app has system overlay presented.
+	/// </summary>
+	public static bool hasSystemOverlayPresent
+	{
+		get
+		{
+			return OVRPlugin.hasSystemOverlayPresent;
 		}
 	}
 
@@ -1094,12 +1116,43 @@ public class OVRManager : MonoBehaviour
 
 		_hadInputFocus = hasInputFocus;
 
+		// Dispatch System Overlay present events.
+
+		bool hasSystemOverlayPresent = OVRPlugin.hasSystemOverlayPresent;
+
+		if (_hadSystemOverlayPresented && !hasSystemOverlayPresent)
+		{
+			try
+			{
+				if (SystemOverlayHide != null)
+					SystemOverlayHide();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		if (!_hadSystemOverlayPresented && hasSystemOverlayPresent)
+		{
+			try
+			{
+				if (SystemOverlayPresented != null)
+					SystemOverlayPresented();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		_hadSystemOverlayPresented = hasSystemOverlayPresent;
+
 		// Changing effective rendering resolution dynamically according performance
 #if (UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN) && UNITY_5_4_OR_NEWER
 
 		if (enableAdaptiveResolution)
 		{
-#if UNITY_2017_2_OR_NEWER
 			if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale < maxRenderScale)
 			{
 				// Allocate renderScale to max to avoid re-allocation
@@ -1115,23 +1168,6 @@ public class OVRManager : MonoBehaviour
 			float recommendedViewportScale = OVRPlugin.GetEyeRecommendedResolutionScale() / UnityEngine.XR.XRSettings.eyeTextureResolutionScale;
 			recommendedViewportScale = Mathf.Clamp(recommendedViewportScale, minViewportScale, 1.0f);
 			UnityEngine.XR.XRSettings.renderViewportScale = recommendedViewportScale;
-#else
-			if (VR.VRSettings.renderScale < maxRenderScale)
-			{
-				// Allocate renderScale to max to avoid re-allocation
-				VR.VRSettings.renderScale = maxRenderScale;
-			}
-			else
-			{
-				// Adjusting maxRenderScale in case app started with a larger renderScale value
-				maxRenderScale = Mathf.Max(maxRenderScale, VR.VRSettings.renderScale);
-			}
-			minRenderScale = Mathf.Min(minRenderScale, maxRenderScale);
-			float minViewportScale = minRenderScale / VR.VRSettings.renderScale;
-			float recommendedViewportScale = OVRPlugin.GetEyeRecommendedResolutionScale() / VR.VRSettings.renderScale;
-			recommendedViewportScale = Mathf.Clamp(recommendedViewportScale, minViewportScale, 1.0f);
-			VR.VRSettings.renderViewportScale = recommendedViewportScale;
-#endif
 		}
 #endif
 
@@ -1316,5 +1352,13 @@ public class OVRManager : MonoBehaviour
 			return;
 
 		OVRPlugin.ShowUI(OVRPlugin.PlatformUI.ConfirmQuit);
+	}
+
+	public static void PlatformUIGlobalMenu()
+	{
+		if (!isHmdPresent)
+			return;
+
+		OVRPlugin.ShowUI(OVRPlugin.PlatformUI.GlobalMenu);
 	}
 }

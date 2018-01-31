@@ -557,19 +557,11 @@ public class OVRLint : EditorWindow
 			}, null, "Fix");
 		}
 
-#if UNITY_2017_2_OR_NEWER
 		if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale > 1.5)
-#else
-		if (UnityEngine.VR.VRSettings.renderScale > 1.5)
-#endif
 		{
 			AddFix ("Optimize Render Scale", "For GPU performance, please don't use render scale over 1.5.", delegate(UnityEngine.Object obj, bool last, int selected)
 			{
-#if UNITY_2017_2_OR_NEWER
 				UnityEngine.XR.XRSettings.eyeTextureResolutionScale = 1.5f;
-#else
-				UnityEngine.VR.VRSettings.renderScale = 1.5f;
-#endif
 			}, null, "Fix");
 		}
 	}

@@ -1,0 +1,53 @@
+Oculus SDKs: https://developer.oculus.com/downloads/unity/
+
+Import:
+	1. OVRUtils
+	2. OVRPlatform (Dependency for OVRAvatar)
+	3. OVRAvatar
+
+VRTK: https://www.assetstore.unity3d.com/en/#!/content/64131
+Photon: https://www.assetstore.unity3d.com/en/#!/content/1786
+
+Setup:
+
+1. Open 01_Base
+2. Delete "Main Camera"
+3. Import prefab "OVR/Prefabs/OVRPlayerController" into the scene root (Set rotation Y=-90)
+4. Import prefab "OvrAvatar/Content/Prefabs/LocalAvatar" into the scene as a child of OVRPlayerController/OVRCameraRig/TrackingSpace
+
+Interaction:
+
+1. Attach OVRGrabbable to all Environment/Cube/Grabbables/Cube
+2. Attach a grab area collider to OVRPlayerController/OVRCameraRig/TrackingSpace/LeftHandAnchor and OVRPlayerController/OVRCameraRig/TrackingSpace/RightHandAnchor (Prefab in Prefabs/Grab Area)
+3. Attach OVRGrabber to LeftHandAnchor and RightHandAnchor
+4. Set GripTransform and GrabVolumes in OVRGrabber of LeftHandAnchor and RightHandAnchor to its child grab area
+5. In OVRGrabber set Controller to LTouch / RTouch
+6. Deactivate useGravity and activate isKinematic in LeftHandAnchor and RightHandAnchor
+
+Networking:
+
+1. Import Photon
+2. Press ALT + P for autosetup (or delete Photon Unity Networking/Ressources)
+3. Enter app id
+4. Go to Photon settings and change Protocl to TCP
+5. Attach PhotonController to GameController
+	a. Let the script inherit from PunBehaviour
+	b. Connect Photon in Start
+	c. Define OnEvent
+	d. Add OnEvent to OnEventCall in OnEnable and remove it in OnDisable
+	e. Define OnConnectedToMaster and OnJoinedLobby and let it call JoinRandomRoom
+	f. Define OnPhotonRandomJoinFailed and let it create a room
+	g. Define OnJoinedRoom and let it allocate a view ID and raise a participant joined event
+	h. Fetch the event in OnEvent and let it wire up either the own avatar or the remote one
+6. Attach PhotonView and a new script called e.g. PhotonAvatarView to the LocalAvatar and drag the attached PhotonAvatarView into the observed components of the PhotonView
+7. Import prefab "OvrAvatar/Content/Prefabs/RemoteAvatar" into the scene and repeat step 6 on it
+8. Save the RemoteAvatar as a new Prefab and delete the instance in the scene
+9. Edit PhotonAvatarView
+	a. In Awake fetch PhotonView, OvrAvatar and OvrAvatarRemoteDriver into the class
+	b. Define OnLocalAvatarPacketRecorded
+	c. Create a helper method SetPacketRecording(bool), which sets RecordPackets in OvrAvatar and either adds or removes OnLocalAvatarPacketRecorded to/from it
+	d. Let OnEnable call SetPacketRecording(true) and OnDisable call SetPacketRecording(false)
+	e. Let Update listen for changes in PhotonView.isMine and pass this value to SetPacketRecording
+	f. Let OnLocalAvatarPacketRecorded record the avatar data in a binary package and queue it
+	g. Add a method DeserializeAndQueuePacketData, which takes the binary avatar data and plays it back to the avatar
+	h. Define OnPhotonSerializeView, which either writes the data when isWriting or else reads
