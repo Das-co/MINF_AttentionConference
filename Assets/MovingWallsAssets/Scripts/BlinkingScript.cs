@@ -53,14 +53,24 @@ public class BlinkingScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKeyDown("2"))
+      /*  if (Input.GetKeyDown("2"))
         {
-            StartCoroutine(Blink());
+           
            
         }
         if (Input.GetKeyDown("3"))
         {
-            StopAllCoroutines();
-        }
+            
+        }*/
+    }
+
+    public void StartLights()
+    {
+        StartCoroutine(Blink());
+    }
+
+    public void StopLights()
+    {
+        StopCoroutine(Blink());
     }
 }
