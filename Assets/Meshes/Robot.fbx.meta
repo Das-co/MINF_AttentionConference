@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: 3eb8d87e593fb0d43bc97f0e3571f24c
+timeCreated: 1521718561
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: elbow.L
+    100002: elbow.L_end
+    100004: elbow.R
+    100006: elbow.R_end
+    100008: foot.L
+    100010: foot.L_end
+    100012: foot.R
+    100014: foot.R_end
+    100016: FootRoll.L
+    100018: FootRoll.R
+    100020: forearm.L
+    100022: forearm.R
+    100024: hand.L
+    100026: hand.L_end
+    100028: hand.R
+    100030: hand.R_end
+    100032: HandIkController.L
+    100034: HandIkController.R
+    100036: Ik.pole.l
+    100038: Ik.pole.l_end
+    100040: Ik.pole.r
+    100042: Ik.pole.r_end
+    100044: Ik_legTarget.L
+    100046: Ik_legTarget.L_end
+    100048: Ik_legTarget.R
+    100050: Ik_legTarget.R_end
+    100052: metarig
+    100054: pelvis.L
+    100056: pelvis.L_end
+    100058: pelvis.R
+    100060: pelvis.R_end
+    100062: //RootNode
+    100064: Robot_low
+    100066: shin.L
+    100068: shin.R
+    100070: shoulder.L
+    100072: shoulder.R
+    100074: spine
+    100076: spine.001
+    100078: spine.002
+    100080: spine.003
+    100082: spine.004
+    100084: spine.005
+    100086: spine.006
+    100088: spine.006_end
+    100090: thigh.L
+    100092: thigh.R
+    100094: upper_arm.L
+    100096: upper_arm.R
+    400000: elbow.L
+    400002: elbow.L_end
+    400004: elbow.R
+    400006: elbow.R_end
+    400008: foot.L
+    400010: foot.L_end
+    400012: foot.R
+    400014: foot.R_end
+    400016: FootRoll.L
+    400018: FootRoll.R
+    400020: forearm.L
+    400022: forearm.R
+    400024: hand.L
+    400026: hand.L_end
+    400028: hand.R
+    400030: hand.R_end
+    400032: HandIkController.L
+    400034: HandIkController.R
+    400036: Ik.pole.l
+    400038: Ik.pole.l_end
+    400040: Ik.pole.r
+    400042: Ik.pole.r_end
+    400044: Ik_legTarget.L
+    400046: Ik_legTarget.L_end
+    400048: Ik_legTarget.R
+    400050: Ik_legTarget.R_end
+    400052: metarig
+    400054: pelvis.L
+    400056: pelvis.L_end
+    400058: pelvis.R
+    400060: pelvis.R_end
+    400062: //RootNode
+    400064: Robot_low
+    400066: shin.L
+    400068: shin.R
+    400070: shoulder.L
+    400072: shoulder.R
+    400074: spine
+    400076: spine.001
+    400078: spine.002
+    400080: spine.003
+    400082: spine.004
+    400084: spine.005
+    400086: spine.006
+    400088: spine.006_end
+    400090: thigh.L
+    400092: thigh.R
+    400094: upper_arm.L
+    400096: upper_arm.R
+    2100000: Material
+    2100002: Material.001
+    4300000: Robot_low
+    7400000: metarig|Robot_Idle
+    7400002: metarig|Robot_Jump
+    7400004: metarig|Robot_Punch
+    7400006: metarig|Robot_Walk
+    7400008: metarig|Robot_Sprint
+    9500000: //RootNode
+    13700000: Robot_low
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: a743a5eb187db0646883f46ab652094b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: bed2274ebff2123478f8bd035b64ce4b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: spine
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
