@@ -38,18 +38,8 @@ public class BlinkingScript : MonoBehaviour {
         }
     }
 
-  /*  IEnumerator NoBlink()
-    {
-        while (true)
-        {
-            for (int i = 0; i < lightObjects.Count; i++)
-            {
-                lightObjects[i].GetComponent<Renderer>().material = lightOff;
-                lightObjects[i].GetChild(0).GetComponent<Light>().enabled = false;
-            }
-        }
-    }
-    */
+    
+  
     // Update is called once per frame
     void Update ()
     {
@@ -71,6 +61,7 @@ public class BlinkingScript : MonoBehaviour {
 
     public void StopLights()
     {
-        StopCoroutine(Blink());
+       
+      StopAllCoroutines();
     }
 }
