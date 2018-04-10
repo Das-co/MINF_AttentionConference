@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A492330F-3909-0F77-16DF-0314D371E0CD}</ProjectGuid>
+    <ProjectGuid>{60406444-FD25-A639-F9DE-7694A053A6E0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>EditorPlugins:7</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -276,13 +276,95 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="MINF_AttentionConference.Plugins.csproj">
-      <Project>{54186035-86B0-D9B4-E3B7-4686A1B7D254}</Project>
-      <Name>MINF_AttentionConference.Plugins</Name>
+    <ProjectReference Include="MINF_AttentionConference_broken.Plugins.csproj">
+      <Project>{3B0BD427-DF14-58B4-C9D4-21408D110A46}</Project>
+      <Name>MINF_AttentionConference_broken.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="MINF_AttentionConference_broken.csproj">
+      <Project>{56BBB36D-6E0E-C80F-E7ED-07475E8AB56D}</Project>
+      <Name>MINF_AttentionConference_broken</Name>
+    </ProjectReference>
+    <ProjectReference Include="MINF_AttentionConference_broken.Editor.Plugins.csproj">
+      <Project>{07DA8950-5F9E-6563-BB79-4809626BD44E}</Project>
+      <Name>MINF_AttentionConference_broken.Editor.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Editor\JetBrains\Unity3DRider.cs" />
+    <Compile Include="Assets\_MK\MKXRayFree\Editor\MKXRayFreeEditor.cs" />
+    <Compile Include="Assets\Assets for Roomcreation\_MK\MKGlassFree\Editor\MKGlassFreeEditor.cs" />
+    <Compile Include="Assets\OculusPlatform\Editor\GUIHelper.cs" />
+    <Compile Include="Assets\OculusPlatform\Editor\OculusPlatformSettingsEditor.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRBuild.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRLayerAttributeEditor.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRManifestPreprocessor.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRMoonlightLoader.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRPluginUpdater.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRPluginUpdaterStub.cs" />
+    <Compile Include="Assets\OVR\Editor\OVRScreenshotWizard.cs" />
+    <Compile Include="Assets\OVR\Scripts\Editor\OVRManagerEditor.cs" />
+    <Compile Include="Assets\OvrAvatar\Editor\AvatarMaterialEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Demos\DemoHub\Editor\PunStartup.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\CullAreaEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonConverter.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonEditorUtils.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonGUI.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonViewHandler.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PhotonViewInspector.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\PunSceneSettings.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\ReorderableListResources.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\ServerSettingsInspector.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonAnimatorViewEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonRigidbody2DViewEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonRigidbodyViewEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonTransformViewEditor.cs" />
+    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PhotonPlayer\Editor\PlayerRoomIndexingInspector.cs" />
+    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PhotonPlayer\Editor\PunTeamsInspector.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\BloomModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\BuiltinDebugViewsEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\ChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\ColorGradingModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\DefaultPostFxModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\DepthOfFieldModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\DitheringModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\EyeAdaptationModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\FogModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\GrainModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\MotionBlurModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\ScreenSpaceReflectionModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\UserLutModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Models\VignetteModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Monitors\HistogramMonitor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Monitors\ParadeMonitor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Monitors\VectorscopeMonitor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Monitors\WaveformMonitor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PostProcessingBehaviourEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PostProcessingFactory.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PostProcessingInspector.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PostProcessingModelEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PostProcessingMonitor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PropertyDrawers\GetSetDrawer.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PropertyDrawers\MinDrawer.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\PropertyDrawers\TrackballGroupDrawer.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Utils\CurveEditor.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Utils\EditorGUIHelper.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Utils\EditorResources.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
+    <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_AdaptiveQualityEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_EditorUtilities.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_InteractHapticsEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_ObjectSetup.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_PolicyListEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_RadialMenuEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_SDKManagerEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_SDKSetupEditor.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_SupportInfoWindow.cs" />
+    <Compile Include="Assets\VRTK\Editor\VRTK_UpdatePrompt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets for Roomcreation\_MK\MKGlassFree\Shader\Inc\Common\MKGlassDef.cginc" />

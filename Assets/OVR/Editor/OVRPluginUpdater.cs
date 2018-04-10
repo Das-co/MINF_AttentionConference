@@ -74,7 +74,7 @@ class OVRPluginUpdater
 			Plugins = new Dictionary<BuildTarget, string>()
 			{
 				{ BuildTarget.Android, rootPath + GetPluginBuildTargetSubPath(BuildTarget.Android) },
-				{ BuildTarget.StandaloneOSX, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneOSX) },
+				//{ BuildTarget.StandaloneOSX, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneOSX) },
 				{ BuildTarget.StandaloneWindows, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneWindows) },
 				{ BuildTarget.StandaloneWindows64, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneWindows64) },
 			}
@@ -146,9 +146,9 @@ class OVRPluginUpdater
 			case BuildTarget.Android:
 				path = @"/Android/OVRPlugin.aar";
 				break;
-			case BuildTarget.StandaloneOSX:
+			/*case BuildTarget.StandaloneOSX:
 				path = @"/OSXUniversal/OVRPlugin.bundle";
-				break;
+				break;*/
 			case BuildTarget.StandaloneWindows:
 				path = @"/Win/OVRPlugin.dll";
 				break;
@@ -262,17 +262,17 @@ class OVRPluginUpdater
 					case BuildTarget.Android:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, true);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
+						//pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
 						pi.SetCompatibleWithEditor(false);
 						break;
-					case BuildTarget.StandaloneOSX:
+					/*case BuildTarget.StandaloneOSX:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, true);
+						//pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
@@ -282,11 +282,11 @@ class OVRPluginUpdater
 						pi.SetEditorData("OS", "OSX");
 						pi.SetPlatformData("Editor", "CPU", "AnyCPU");
 						pi.SetPlatformData("Editor", "OS", "OSX");
-						break;
+						break;*/
 					case BuildTarget.StandaloneWindows:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
+						//pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, true);
@@ -300,7 +300,7 @@ class OVRPluginUpdater
 					case BuildTarget.StandaloneWindows64:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
+						//pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);

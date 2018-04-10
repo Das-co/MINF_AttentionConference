@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A492330F-3909-0F77-16DF-0314D371E0CD}</ProjectGuid>
+    <ProjectGuid>{07DA8950-5F9E-6563-BB79-4809626BD44E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -276,9 +276,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="MINF_AttentionConference.Plugins.csproj">
-      <Project>{54186035-86B0-D9B4-E3B7-4686A1B7D254}</Project>
-      <Name>MINF_AttentionConference.Plugins</Name>
+    <ProjectReference Include="MINF_AttentionConference_broken.Plugins.csproj">
+      <Project>{3B0BD427-DF14-58B4-C9D4-21408D110A46}</Project>
+      <Name>MINF_AttentionConference_broken.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
