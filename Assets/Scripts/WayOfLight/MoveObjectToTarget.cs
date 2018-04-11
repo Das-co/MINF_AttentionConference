@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveObjectToTarget : MonoBehaviour {
-
+    [SerializeField]
     private Transform target;
     public float speed;
     // Use this for initialization
@@ -17,10 +17,5 @@ public class MoveObjectToTarget : MonoBehaviour {
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
 
-        //if (transform.position == target.position)
-        //{
-        //    Destroy(gameObject);
-        //    Debug.Log("Destroyed");
-        //}
     }
 }

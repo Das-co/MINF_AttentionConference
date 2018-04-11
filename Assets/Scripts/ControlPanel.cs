@@ -19,7 +19,7 @@ public class ControlPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (OVRInput.GetDown(OVRInput.Button.One))
+        if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("k"))
         {
             print("Key Down " + controlPanelCanvas.activeSelf);
 

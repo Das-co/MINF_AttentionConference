@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LightingDimmingBehvior : MonoBehaviour {
-
     private bool reduceRiseColor;
     private bool riseOrReduce;
     private bool objectJump;
@@ -11,10 +10,9 @@ public class LightingDimmingBehvior : MonoBehaviour {
     public Light attentionLight;
     public GameObject coneAttention;
     public GameObject roomLights;
-    [SerializeField]
     private bool ambientLight;
-    [SerializeField]
     private float counter;
+    private float ambientIntensity;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +23,34 @@ public class LightingDimmingBehvior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Vector3 targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
+        transform.position = targetPos;
+
+        ambientIntensity = RenderSettings.ambientIntensity;
+
+
+        Vector3 v3Pos = Camera.main.WorldToViewportPoint(targetPos);
+        
+        if(ambientLight==true && reduceRiseColor == false && riseOrReduce &&RenderSettings.ambientIntensity < 1&& v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f)
+        {
+            //Debug.Log(v3Pos.x + " >= 0.0f; " + v3Pos.x + " <= 1.0f; "+ v3Pos.y +">= 0.0f; "+ v3Pos.y +"<= 1.0f; "+v3Pos.z +"> 0.0f");
+            if (v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f)
+            {
+                if (ambientLight == true)
+                    RenderSettings.ambientIntensity += 0.01f;
+                //reduceRiseColor = false;
+                print("In Cam");
+                attentionLight.GetComponent<Light>().range -= 0.1f;
+            }
+            
+        }
+        else if(reduceRiseColor == false && riseOrReduce && RenderSettings.ambientIntensity > 0 && !(v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f))
+        {
+            if(ambientLight == true)
+                RenderSettings.ambientIntensity -= 0.01f;
+            attentionLight.GetComponent<Light>().range += 0.1f;
+        }
+
 
         //Lichtstärke im Raum verringern
         if (reduceRiseColor == true && riseOrReduce)
@@ -43,7 +69,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
                 reduceRiseColor = false;
                 //print("Stopped reducing");
                 coneAttention.SetActive(true);
-            }
+            } 
         }
 
         //Lichtstärke im Raum erhöhen
@@ -66,13 +92,6 @@ public class LightingDimmingBehvior : MonoBehaviour {
                 coneAttention.SetActive(false);
             }
         }
-    }
-
-    IEnumerator Example()
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(1);
-        print(Time.time);
     }
 
     public void Sequence()

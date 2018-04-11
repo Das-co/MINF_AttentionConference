@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WayOfLightControl : MonoBehaviour {
 
-    public Transform player;
-    public Transform target;
+    private Transform player;
+    //public Transform target;
     public GameObject LightWay; 
     public GameObject theLight;
     public float speed;
@@ -16,6 +16,7 @@ public class WayOfLightControl : MonoBehaviour {
     private float playerTargetDistance;
     private float cloneTargetDistance;
     private float distanceToSpawn;
+    [SerializeField]
     private bool sequenceStart;
     [SerializeField]
     private bool reduceRiseColor;
@@ -23,23 +24,52 @@ public class WayOfLightControl : MonoBehaviour {
     private bool riseLight;
     private float counter;
     private bool ambientLight;
+    [SerializeField]
     private bool notFirstTime;
+    [SerializeField]
+    private Vector3 targetPos;
 
     private void Start()
     {
+        //player = Camera.main.transform;
         ambientLight = true;
         counter = RenderSettings.ambientIntensity;
         //reduceRiseColor = true;
     }
     // Update is called once per frame
     void Update () {
+        player = Camera.main.transform;
+
+        targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
+        transform.position = targetPos;
+
+        Vector3 v3Pos = Camera.main.WorldToViewportPoint(targetPos);
+
+        if (ambientLight == true && reduceRiseColor == false && riseLight && RenderSettings.ambientIntensity < 1 && v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f)
+        {
+            //Debug.Log(v3Pos.x + " >= 0.0f; " + v3Pos.x + " <= 1.0f; "+ v3Pos.y +">= 0.0f; "+ v3Pos.y +"<= 1.0f; "+v3Pos.z +"> 0.0f");
+            if (v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f)
+            {
+                if (ambientLight == true)
+                    RenderSettings.ambientIntensity += 0.01f;
+                //reduceRiseColor = false;
+                print("In Cam");
+            }
+
+        }
+        else if (reduceRiseColor == false && riseLight && RenderSettings.ambientIntensity > 0 && !(v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f && v3Pos.z > 0.0f))
+        {
+            if (ambientLight == true)
+                RenderSettings.ambientIntensity -= 0.01f;
+        }
+
 
         if (sequenceStart == true)
         {
             float step = speed * Time.deltaTime;
             //Debug.Log("Clone - Target distance" + Mathf.Round(Vector3.Distance(clone.transform.position, target.position)*100)/100);
 
-            if(clone.transform.position == target.transform.position)
+            if (clone.transform.position == targetPos)
             {
                 clone.transform.position = player.transform.position;
             }
@@ -92,6 +122,7 @@ public class WayOfLightControl : MonoBehaviour {
         {
             tempLight = Instantiate(theLight, new Vector3(clone.transform.position.x, 0.1f, clone.transform.position.z), Quaternion.identity);
             tempLight.tag = "SpawnedLight";
+            print("Light Spawned");
             Destroy(tempLight, 1.1f);
         }
     }
@@ -110,13 +141,14 @@ public class WayOfLightControl : MonoBehaviour {
         } else
         {
             destroyLights = false;
-            clone = Instantiate(LightWay, new Vector3(player.transform.position.x, 0.1f, player.transform.position.z), Quaternion.identity);
-            playerTargetDistance = Vector3.Distance(player.position, target.position);
+            clone = Instantiate(LightWay, new Vector3(player.position.x, 0.1f, player.position.z), Quaternion.identity);
+            playerTargetDistance = Vector3.Distance(player.position, targetPos);
             //Debug.Log("Player - Target distance: " + playerTargetDistance);
 
             //InvokeRepeating("ResetWay", 0.0f, 5);
             if (notFirstTime == false)
             {
+                print("first time");
                 InvokeRepeating("SpawnLight", 0.2f, 0.5f);
                 notFirstTime = true;
             }
