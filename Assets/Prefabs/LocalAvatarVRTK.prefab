@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac27124318cf8e84aa7350c2ac1cdb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mode: 0
 --- !u!114 &114152973972042398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +356,7 @@ MonoBehaviour:
   smoothsPosition: 0
   maxAllowedPerFrameDistanceDifference: 0.003
   followsRotation: 1
-  smoothsRotation: 0
+  smoothsRotation: 1
   maxAllowedPerFrameAngleDifference: 1.5
   followsScale: 1
   smoothsScale: 0
@@ -450,6 +451,7 @@ MonoBehaviour:
   HandLeft: {fileID: 114915232761941848}
   HandRight: {fileID: 114630779027231342}
   RecordPackets: 0
+  UseSDKPackets: 1
   StartWithControllers: 0
   FirstPersonLayer:
     layerIndex: 0
@@ -462,6 +464,7 @@ MonoBehaviour:
   SurfaceShaderSelfOccluding: {fileID: 4800000, guid: 10513ef587704324487f3061a7e6699d,
     type: 3}
   SurfaceShaderPBS: {fileID: 4800000, guid: d7662dbac0646464a9b4a48e93989adb, type: 3}
+  SurfaceShaderPBSV2: {fileID: 0}
   oculusUserID: 0
   CombineMeshes: 0
   AssetsDoneLoading:
