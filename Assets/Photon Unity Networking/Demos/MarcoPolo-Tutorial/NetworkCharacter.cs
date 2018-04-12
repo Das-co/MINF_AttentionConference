@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class NetworkCharacter : Photon.MonoBehaviour
 {
+    Animator anim;
+
     private Vector3 correctPlayerPos = Vector3.zero; // We lerp towards this
     private Quaternion correctPlayerRot = Quaternion.identity; // We lerp towards this
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +28,11 @@ public class NetworkCharacter : Photon.MonoBehaviour
             // We own this player: send the others our data
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(anim.GetBool("Jump"));
+            stream.SendNext(anim.GetBool("Punch"));
+            stream.SendNext(anim.GetBool("Walk"));
+            stream.SendNext(anim.GetBool("Sprint"));
+            stream.SendNext(anim.GetBool("Idle"));
 
             myThirdPersonController myC = GetComponent<myThirdPersonController>();
             stream.SendNext((int)myC._characterState);
@@ -33,6 +45,11 @@ public class NetworkCharacter : Photon.MonoBehaviour
 
             myThirdPersonController myC = GetComponent<myThirdPersonController>();
             myC._characterState = (CharacterState)stream.ReceiveNext();
+            anim.SetBool("Jump", (bool)stream.ReceiveNext());
+            anim.SetBool("Punch", (bool)stream.ReceiveNext());
+            anim.SetBool("Walk", (bool)stream.ReceiveNext());
+            anim.SetBool("Idle", (bool)stream.ReceiveNext());
+            anim.SetBool("Sprint", (bool)stream.ReceiveNext());
         }
     }
 }

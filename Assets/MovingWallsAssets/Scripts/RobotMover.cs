@@ -19,25 +19,43 @@ public class RobotMover : MonoBehaviour {
     
     public void PlayIdle()
     {
-        animation.Play("metarig|Robot_Idle");
+        //animation.Play("metarig|Robot_Idle");
+        falseAll();
+        animation.SetBool("Idle", true);
     }
     public void PlayWalk()
     {
-        animation.Play("metarig|Robot_Walk");
+        //animation.Play("metarig|Robot_Walk");
+        falseAll();
+        animation.SetBool("Walk", true);
     }
     public void PlayJump()
     {
-        animation.Play("metarig|Robot_Jump");
+        //animation.Play("metarig|Robot_Jump");
+        falseAll();
+        animation.SetBool("Jump", true);
     }
     public void PlaySprint()
     {
-        animation.Play("metarig|Robot_Sprint");
+        //animation.Play("metarig|Robot_Sprint");
+        falseAll();
+        animation.SetBool("Sprint", true);
     }
     public void PlayPunch()
     {
-        animation.Play("metarig|Robot_Punch");
+        //animation.Play("metarig|Robot_Punch");
+        falseAll();
+        animation.SetBool("Punch", true);
     }
 
+    private void falseAll()
+    {
+        animation.SetBool("Jump", false);
+        animation.SetBool("Walk", false);
+        animation.SetBool("Idle", false);
+        animation.SetBool("Sprint", false);
+        animation.SetBool("Punch", false);
+    }
 
 
 }
