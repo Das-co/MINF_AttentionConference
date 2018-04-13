@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class NetworkCharacter : Photon.MonoBehaviour
 {
+    [SerializeField]
     Animator anim;
 
     private Vector3 correctPlayerPos = Vector3.zero; // We lerp towards this
