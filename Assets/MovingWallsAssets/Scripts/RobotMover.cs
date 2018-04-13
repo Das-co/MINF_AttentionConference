@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +14,13 @@ public class RobotMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-    
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GetComponent<PhotonView>().RPC("PlayJump", PhotonTargets.All, null);
+        }
+    }
+
+    [PunRPC]
     public void PlayIdle()
     {
         //animation.Play("metarig|Robot_Idle");
