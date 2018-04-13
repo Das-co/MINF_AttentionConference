@@ -1,33 +1,22 @@
 fileFormatVersion: 2
 guid: 4d740c2d065dddb4182b752ea167d8c6
-timeCreated: 1514388874
+timeCreated: 1523647254
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cylinder
-    100004: Cylinder.001
     400000: //RootNode
-    400002: Cylinder
-    400004: Cylinder.001
-    2300000: Cylinder
-    2300002: Cylinder.001
-    3300000: Cylinder
-    3300002: Cylinder.001
-    4300000: Cylinder.001
-    4300002: Cylinder
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 170e1ed35d6357a4b8e054f9526ce12a, type: 2}
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -65,6 +54,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
