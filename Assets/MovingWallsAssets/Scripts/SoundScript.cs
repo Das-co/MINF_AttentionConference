@@ -7,7 +7,8 @@ public class SoundScript : MonoBehaviour {
     public AudioSource bling;
     private bool soundState = false;
     bool soundBool;
-
+    public int times = 4;
+    float delay = 1.4f;
 
     // Use this for initialization
     void Start () {
@@ -29,7 +30,16 @@ public class SoundScript : MonoBehaviour {
     public void SendSound()
     {
         soundState = soundBool;
-        bling.Play();
+        StartCoroutine(PlayAudio());
         soundState = false;
+    }
+
+    IEnumerator PlayAudio()
+    {
+        for (int i =0; i<times; i++)
+        {
+            bling.Play();
+            yield return new WaitForSeconds(delay);
+        }
     }
 }

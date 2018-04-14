@@ -12,7 +12,13 @@ public class BlinkingScript : MonoBehaviour {
     public List<Transform> lightObjects;
     public float WaitTime = 3;
 
-	// Use this for initialization
+    bool lightBool;
+    bool lightBool2;
+    bool lightsOn;
+    bool lightsOff;
+
+	
+
 	void Start () {
         lightObjects = new List<Transform>();
         foreach(Transform child in transform)
@@ -22,6 +28,8 @@ public class BlinkingScript : MonoBehaviour {
         lightObjects.OrderBy(go=>go.name);
        
 	}
+
+
     IEnumerator Blink()
     {
         while (true)
@@ -38,30 +46,30 @@ public class BlinkingScript : MonoBehaviour {
         }
     }
 
-    
-  
-    // Update is called once per frame
-    void Update ()
+
+    public void SendLight(bool boolean)
     {
-      /*  if (Input.GetKeyDown("2"))
-        {
-           
-           
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            
-        }*/
+        lightBool = boolean;
+        GetComponent<PhotonView>().RPC("StartLights", PhotonTargets.All);
     }
 
+    public void SendNoLight(bool boolean2)
+    {
+        lightBool2 = boolean2;
+        GetComponent<PhotonView>().RPC("StopLights", PhotonTargets.All);
+    }
+
+    [PunRPC]
     public void StartLights()
     {
+        lightsOn = lightBool;
         StartCoroutine(Blink());
     }
 
+    [PunRPC]
     public void StopLights()
     {
-       
-      StopAllCoroutines();
+        lightsOff = lightBool2;
+        StopAllCoroutines();
     }
 }

@@ -46,4 +46,7 @@ MonoBehaviour:
   - SendSound
   - Test
   - SetArrowBool
+  - RunSequenceNetwork
+  - StartLights
+  - StopLights
   DisableAutoOpenWizard: 1
