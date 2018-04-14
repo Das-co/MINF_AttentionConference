@@ -43,7 +43,12 @@ public class LeadView : MonoBehaviour {
     public void ChangeBoolArrow(bool boolean)
     {
         arrowBool = boolean;
+    }
+
+    public void InstantiateArrow()
+    {
         GetComponent<PhotonView>().RPC("SetArrowBool", PhotonTargets.All);
+
     }
 
     [PunRPC]
