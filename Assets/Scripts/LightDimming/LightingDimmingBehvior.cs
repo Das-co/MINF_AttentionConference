@@ -10,8 +10,10 @@ public class LightingDimmingBehvior : MonoBehaviour {
     public Light attentionLight;
     public GameObject coneAttention;
     public GameObject roomLights;
+    [SerializeField]
     private bool ambientLight;
     private float counter;
+    [SerializeField]
     private float ambientIntensity;
     private Vector3 targetPos;
 
@@ -19,6 +21,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
     void Start () {
         coneAttention.SetActive(false);
         reduceRiseColor = true;
+        ambientLight = true;
         counter = RenderSettings.ambientIntensity;
     }
 
@@ -108,6 +111,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
 
     public void ToggleLightReduce(bool boolean)
     {
+        print("Toggling");
         ambientLight = boolean;
     }
 

@@ -12,6 +12,7 @@ public class LeadView : MonoBehaviour {
     private Vector3 v3Pos;
     private GameObject clone;
     private bool cntrlpanel;
+    private bool arrowBool;
 
     //private Camera cam; //Camera to use
     //private Transform target2; //Target to point at (you could set this to any gameObject dynamically)
@@ -20,33 +21,38 @@ public class LeadView : MonoBehaviour {
     private Vector3 dir;
     private float angle;
 
-    private void Awake()
+    private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Target");
         imageArrow.SetActive(cntrlpanel);
     }
 
 
     void Update()
     {
+        if(target==null)
+            target = GameObject.FindGameObjectWithTag("Target");
+
         imageArrow.SetActive(cntrlpanel);
+
         if (cntrlpanel == true)
         {
-            
             PositionArrow();
         }
     }
 
-    public void ChangeBoolArrow()
+    public void ChangeBoolArrow(bool boolean)
     {
+        arrowBool = boolean;
         GetComponent<PhotonView>().RPC("SetArrowBool", PhotonTargets.All);
     }
 
     [PunRPC]
-    private void SetArrowBool()
+    public void SetArrowBool()
     {
-        cntrlpanel = !cntrlpanel;
+        cntrlpanel = arrowBool;
     }
+
+    
 
 
     void PositionArrow()

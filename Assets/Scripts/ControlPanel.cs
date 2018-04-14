@@ -42,6 +42,13 @@ public class ControlPanel : MonoBehaviour {
 
     public void RunSequence()
     {
+        GetComponent<PhotonView>().RPC("RunSequenceNetwork", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    private void RunSequenceNetwork()
+    {
+
         runSequence = !runSequence;
         if (runSequence == true)
         {
