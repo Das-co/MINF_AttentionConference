@@ -39,10 +39,13 @@ public class LeadView : MonoBehaviour {
 
     public void ChangeBoolArrow()
     {
-        cntrlpanel = !cntrlpanel;
+        GetComponent<PhotonView>().RPC("SetArrowBool", PhotonTargets.All);
     }
 
-     
+     private void SetArrowBool()
+    {
+        cntrlpanel = !cntrlpanel;
+    }
 
 
     void PositionArrow()
