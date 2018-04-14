@@ -11,8 +11,11 @@ public class LeadView : MonoBehaviour {
     [SerializeField]
     private Vector3 v3Pos;
     private GameObject clone;
+    [SerializeField]
     private bool cntrlpanel;
+    [SerializeField]
     private bool arrowBool;
+    private bool instantiated;
 
     //private Camera cam; //Camera to use
     //private Transform target2; //Target to point at (you could set this to any gameObject dynamically)
@@ -47,17 +50,24 @@ public class LeadView : MonoBehaviour {
 
     public void InstantiateArrow()
     {
-        GetComponent<PhotonView>().RPC("SetArrowBool", PhotonTargets.All);
-
+        instantiated = !instantiated;
+        if(instantiated==true && arrowBool==true)
+            GetComponent<PhotonView>().RPC("SetArrowBoolTrue", PhotonTargets.All);
+        else
+            GetComponent<PhotonView>().RPC("SetArrowBoolFalse", PhotonTargets.All);
     }
 
     [PunRPC]
-    public void SetArrowBool()
+    public void SetArrowBoolFalse()
     {
-        cntrlpanel = arrowBool;
+        cntrlpanel = false;
+    }
+    [PunRPC]
+    public void SetArrowBoolTrue()
+    {
+        cntrlpanel = true;
     }
 
-    
 
 
     void PositionArrow()

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINF_AttentionConference", "MINF_AttentionConference.csproj", "{9AA2E874-C14E-8B23-1B49-52F2E468D5F7}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minf_AttentionConference", "Minf_AttentionConference.csproj", "{9AA2E874-C14E-8B23-1B49-52F2E468D5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINF_AttentionConference.Plugins", "MINF_AttentionConference.Plugins.csproj", "{54186035-86B0-D9B4-E3B7-4686A1B7D254}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minf_AttentionConference.Plugins", "Minf_AttentionConference.Plugins.csproj", "{54186035-86B0-D9B4-E3B7-4686A1B7D254}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINF_AttentionConference.Editor", "MINF_AttentionConference.Editor.csproj", "{79A2ECF1-E2F0-6899-48D0-981E47770F57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minf_AttentionConference.Editor", "Minf_AttentionConference.Editor.csproj", "{79A2ECF1-E2F0-6899-48D0-981E47770F57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINF_AttentionConference.Editor.Plugins", "MINF_AttentionConference.Editor.Plugins.csproj", "{A492330F-3909-0F77-16DF-0314D371E0CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minf_AttentionConference.Editor.Plugins", "Minf_AttentionConference.Editor.Plugins.csproj", "{A492330F-3909-0F77-16DF-0314D371E0CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68F089BB-1BD5-4076-8EAC-79FFE763B363}
 	EndGlobalSection
 EndGlobal
