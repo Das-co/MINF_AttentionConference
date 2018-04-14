@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Focus on Cone.unity
-    guid: dcbf0bf1d9c10ea43852f85e0be3d22b
-  - enabled: 1
+    path: Assets/DimmingLight.unity
+    guid: c79da6948fb383b42b75840921839e7e
+  - enabled: 0
     path: Assets/MovingWalls.unity
     guid: f8958cf6b985fe64fa2f918963d8533e
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Spotlight.unity
+    guid: dcbf0bf1d9c10ea43852f85e0be3d22b
+  - enabled: 0
     path: Assets/Lightway.unity
     guid: 0990445976462c64a8635f37b83400fb

@@ -13,6 +13,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
     private bool ambientLight;
     private float counter;
     private float ambientIntensity;
+    private Vector3 targetPos;
 
     // Use this for initialization
     void Start () {
@@ -20,10 +21,15 @@ public class LightingDimmingBehvior : MonoBehaviour {
         reduceRiseColor = true;
         counter = RenderSettings.ambientIntensity;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Vector3 targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
+
+    private void OnEnable()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update () {
+        
         transform.position = targetPos;
 
         ambientIntensity = RenderSettings.ambientIntensity;
@@ -96,14 +102,22 @@ public class LightingDimmingBehvior : MonoBehaviour {
 
     public void Sequence()
     {
-        print("Sequence started");
-        reduceRiseColor = !reduceRiseColor;
-        riseOrReduce = !riseOrReduce;
-        roomLights.SetActive(false);
+        GetComponent<PhotonView>().RPC("Test", PhotonTargets.All);
+        
     }
 
     public void ToggleLightReduce(bool boolean)
     {
         ambientLight = boolean;
+    }
+
+    [PunRPC]
+    public void Test()
+    {
+        print("Sequence started");
+        reduceRiseColor = !reduceRiseColor;
+        riseOrReduce = !riseOrReduce;
+        roomLights.SetActive(false);
+        targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
     }
 }
