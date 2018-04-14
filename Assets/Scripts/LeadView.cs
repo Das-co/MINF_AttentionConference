@@ -42,7 +42,8 @@ public class LeadView : MonoBehaviour {
         GetComponent<PhotonView>().RPC("SetArrowBool", PhotonTargets.All);
     }
 
-     private void SetArrowBool()
+    [PunRPC]
+    private void SetArrowBool()
     {
         cntrlpanel = !cntrlpanel;
     }

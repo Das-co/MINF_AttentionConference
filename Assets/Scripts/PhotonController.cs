@@ -21,6 +21,8 @@ public class PhotonController : PunBehaviour {
     public Transform TrackingSpace;
 	public GameObject LocalAvatarPrefab;
 	public GameObject RemoteAvatarPrefab;
+    [SerializeField]
+    private bool master;
 
 	void Start () {
 		// Players are grouped by game version, if two clients have another version than the other,
@@ -59,10 +61,14 @@ public class PhotonController : PunBehaviour {
 			if (PhotonNetwork.player.ID == senderid) {
 				Debug.Log ("[PhotonController]: Setup local avatar for sending");
 				go = Instantiate (LocalAvatarPrefab, TrackingSpace);
+                if (master == true)
+                    go.tag = "Target";
 			} else {
 				Debug.Log ("[PhotonController]: Instantiated remote avatar");
 				if (RemoteAvatarPrefab) {
 					go = Instantiate (RemoteAvatarPrefab, RemoteAvatarSlot);
+                    if (master == false)
+                        go.tag = "Target";
 				}
 			}
 
@@ -95,6 +101,7 @@ public class PhotonController : PunBehaviour {
 			},
 			null
 		);
+        master = true;
 	}
 	
 	public override void OnFailedToConnectToPhoton (DisconnectCause cause) {
