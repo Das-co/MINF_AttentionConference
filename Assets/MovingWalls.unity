@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59ba0703a79d54c93a0e9991174504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 334572488}
+  light: {fileID: 0}
 --- !u!114 &334572493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9325,9 +9325,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1301995601}
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 1301995603}
+        m_MethodName: BlingSound
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9469,6 +9469,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1301995600}
   - component: {fileID: 1301995601}
+  - component: {fileID: 1301995603}
+  - component: {fileID: 1301995602}
   m_Layer: 0
   m_Name: PointOfinterest
   m_TagString: Untagged
@@ -9570,6 +9572,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1301995602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301995599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1301995603}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 27
+  instantiationId: 27
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
+--- !u!114 &1301995603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301995599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f8e614d15363b4c9d80e2518ddf2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bling: {fileID: 1301995601}
 --- !u!1001 &1323559654
 Prefab:
   m_ObjectHideFlags: 0

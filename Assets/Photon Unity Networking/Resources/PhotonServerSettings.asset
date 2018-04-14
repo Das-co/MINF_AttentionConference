@@ -45,4 +45,5 @@ MonoBehaviour:
   - PlayIdle
   - SendSound
   - Test
+  - SetArrowBool
   DisableAutoOpenWizard: 1

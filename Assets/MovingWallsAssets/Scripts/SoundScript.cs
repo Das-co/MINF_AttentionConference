@@ -6,32 +6,30 @@ public class SoundScript : MonoBehaviour {
 
     public AudioSource bling;
     private bool soundState = false;
+    bool soundBool;
 
-	// Use this for initialization
-	void Start () {
-		
+
+    // Use this for initialization
+    void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (soundState == null)
-        {
-            return;
-        }
-
-        if(soundState == true)
-        {
-            bling.Play();
-            soundState = false;
-        }
-
 		
 	}
+
+    public void BlingSound(bool boolean)
+    {
+        soundBool = boolean;
+        GetComponent<PhotonView>().RPC("SendSound", PhotonTargets.All);
+    }
+
     [PunRPC]
     public void SendSound()
     {
-        soundState = true;
-       
+        soundState = soundBool;
+        bling.Play();
+        soundState = false;
     }
 }
