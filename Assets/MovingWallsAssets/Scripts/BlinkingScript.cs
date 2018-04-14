@@ -34,7 +34,7 @@ public class BlinkingScript : MonoBehaviour {
     {
         while (true)
         {
-            for(int i =0; i < lightObjects.Count; i++)
+            for(int i = 0; i < lightObjects.Count; i++)
             {
                 lightObjects[i].GetComponent<Renderer>().material = lightOn;
                 lightObjects[i].GetChild(0).GetComponent<Light>().enabled = true;
@@ -71,5 +71,11 @@ public class BlinkingScript : MonoBehaviour {
     {
         lightsOff = lightBool2;
         StopAllCoroutines();
+
+        for (int i = 0; i < lightObjects.Count; i++)
+        {
+            lightObjects[i].GetComponent<Renderer>().material = lightOff;
+            lightObjects[i].GetChild(0).GetComponent<Light>().enabled = false;
+        }
     }
 }
