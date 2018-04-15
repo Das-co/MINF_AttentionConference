@@ -63,13 +63,17 @@ public class PhotonController : PunBehaviour {
 				go = Instantiate (LocalAvatarPrefab, TrackingSpace);
                 if (master == true)
                     go.tag = "Target";
+                else
+                    go.tag = "Player";
 			} else {
 				Debug.Log ("[PhotonController]: Instantiated remote avatar");
 				if (RemoteAvatarPrefab) {
 					go = Instantiate (RemoteAvatarPrefab, RemoteAvatarSlot);
                     if (master == false)
                         go.tag = "Target";
-				}
+                    else
+                        go.tag = "Player";
+                }
 			}
 
 			if (go != null) {

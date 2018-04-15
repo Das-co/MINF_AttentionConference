@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WayOfLightControl : MonoBehaviour {
-
+    [SerializeField]
     private Transform player;
     //public Transform target;
     public GameObject LightWay; 
@@ -38,7 +38,8 @@ public class WayOfLightControl : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        player = Camera.main.transform;
+        //player = Camera.main.transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
         transform.position = targetPos;
@@ -120,7 +121,7 @@ public class WayOfLightControl : MonoBehaviour {
     {
         if(sequenceStart == true)
         {
-            tempLight = Instantiate(theLight, new Vector3(clone.transform.position.x, 0.1f, clone.transform.position.z), Quaternion.identity);
+            tempLight = Instantiate(theLight, new Vector3(clone.transform.position.x, 0.1f, clone.transform.position.z), Quaternion.Euler(new Vector3(-90, 0, 0)));
             tempLight.tag = "SpawnedLight";
             print("Light Spawned");
             Destroy(tempLight, 1.1f);
@@ -132,6 +133,7 @@ public class WayOfLightControl : MonoBehaviour {
         GetComponent<PhotonView>().RPC("SequencePhoton", PhotonTargets.All);
     }
 
+    [PunRPC]
     private void SequencePhoton()
     {
         print("Starting... ");
@@ -147,6 +149,7 @@ public class WayOfLightControl : MonoBehaviour {
         {
             destroyLights = false;
             clone = Instantiate(LightWay, new Vector3(player.position.x, 0.1f, player.position.z), Quaternion.identity);
+            clone.GetComponent<MoveObjectToTarget>().SetTarget(targetPos);
             playerTargetDistance = Vector3.Distance(player.position, targetPos);
             //Debug.Log("Player - Target distance: " + playerTargetDistance);
 
@@ -162,7 +165,25 @@ public class WayOfLightControl : MonoBehaviour {
 
     public void ToggleLightReduce(bool boolean)
     {
+        print("Toggling");
         ambientLight = boolean;
+
+        if (ambientLight == true)
+            GetComponent<PhotonView>().RPC("AmbientLightTrue", PhotonTargets.All);
+        else
+            GetComponent<PhotonView>().RPC("AmbientLightFalse", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    private void AmbientLightTrue()
+    {
+        ambientLight = true;
+    }
+
+    [PunRPC]
+    private void AmbientLightFalse()
+    {
+        ambientLight = false;
     }
 
 }
