@@ -15,7 +15,6 @@ public class SpotlightBehvior : MonoBehaviour {
     public GameObject roomLights;
     public ControlPanel cPanel;
 
-
     // Use this for initialization
     void Start () {
         coneAttention.SetActive(false);
@@ -23,18 +22,20 @@ public class SpotlightBehvior : MonoBehaviour {
         counter = RenderSettings.ambientIntensity;
     }
 
-    void Update () {
 
+    void Update () {
+        transform.position = GameObject.FindGameObjectWithTag("Target").transform.position;
+        
 
         //Lichtstärke im Raum verringern
         if (reduceRiseColor == true && riseOrReduce)
         {
-            coneAttention.SetActive(true);
+            roomLights.SetActive(false);
 
             if (ambientLight == true)
             {
                 RenderSettings.ambientIntensity -= 0.01f;
-                roomLights.SetActive(false);
+                coneAttention.SetActive(true);
             }
             counter -= 0.01f;
             //print("reducing: " + RenderSettings.ambientIntensity);
@@ -53,10 +54,11 @@ public class SpotlightBehvior : MonoBehaviour {
         //Lichtstärke im Raum erhöhen
         else if (reduceRiseColor == true && !riseOrReduce)
         {
+
             if (ambientLight == true)
             {
-                RenderSettings.ambientIntensity += 0.01f;
                 roomLights.SetActive(true);
+                RenderSettings.ambientIntensity += 0.01f;
             }
             counter += 0.01f;
 
