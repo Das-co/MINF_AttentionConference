@@ -109,12 +109,6 @@ public class LightingDimmingBehvior : MonoBehaviour {
         
     }
 
-    public void ToggleLightReduce(bool boolean)
-    {
-        print("Toggling");
-        ambientLight = boolean;
-    }
-
     [PunRPC]
     public void SequencePhoton()
     {
@@ -124,4 +118,28 @@ public class LightingDimmingBehvior : MonoBehaviour {
         roomLights.SetActive(false);
         targetPos = GameObject.FindGameObjectWithTag("Target").transform.position;
     }
+
+    public void ToggleLightReduce(bool boolean)
+    {
+        print("Toggling");
+        ambientLight = boolean;
+
+        if (ambientLight == true)
+            GetComponent<PhotonView>().RPC("AmbientLightTrue", PhotonTargets.All);
+        else
+            GetComponent<PhotonView>().RPC("AmbientLightFalse", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    private void AmbientLightTrue()
+    {
+        ambientLight = true;
+    }
+
+    [PunRPC]
+    private void AmbientLightFalse()
+    {
+        ambientLight = false;
+    }
+
 }
