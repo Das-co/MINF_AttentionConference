@@ -77,22 +77,44 @@ public class SpotlightBehvior : MonoBehaviour {
         }
     }
 
-    IEnumerator Example()
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(1);
-        print(Time.time);
-    }
 
     public void Sequence()
+    {
+
+        GetComponent<PhotonView>().RPC("SequencePhoton", PhotonTargets.All);
+
+        
+    }
+
+    [PunRPC]
+    private void SequencePhoton()
     {
         print("Starting... " + reduceRiseColor);
         reduceRiseColor = !reduceRiseColor;
         riseOrReduce = !riseOrReduce;
     }
 
+
+
     public void ToggleLightReduce(bool boolean)
     {
         ambientLight = boolean;
+
+        if (ambientLight == true)
+            GetComponent<PhotonView>().RPC("AmbientLightTrue", PhotonTargets.All);
+        else
+            GetComponent<PhotonView>().RPC("AmbientLightFalse", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    private void AmbientLightTrue()
+    {
+        ambientLight = true;
+    }
+
+    [PunRPC]
+    private void AmbientLightFalse()
+    {
+        ambientLight = false;
     }
 }
