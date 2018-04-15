@@ -129,6 +129,11 @@ public class WayOfLightControl : MonoBehaviour {
 
     public void Sequence()
     {
+        GetComponent<PhotonView>().RPC("SequencePhoton", PhotonTargets.All);
+    }
+
+    private void SequencePhoton()
+    {
         print("Starting... ");
         sequenceStart = !sequenceStart;
         reduceRiseColor = !reduceRiseColor;

@@ -49,4 +49,7 @@ MonoBehaviour:
   - RunSequenceNetwork
   - StartLights
   - StopLights
+  - SetArrowBoolFalse
+  - SetArrowBoolTrue
+  - SequencePhoton
   DisableAutoOpenWizard: 1

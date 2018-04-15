@@ -105,7 +105,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
 
     public void Sequence()
     {
-        GetComponent<PhotonView>().RPC("Test", PhotonTargets.All);
+        GetComponent<PhotonView>().RPC("SequencePhoton", PhotonTargets.All);
         
     }
 
@@ -116,7 +116,7 @@ public class LightingDimmingBehvior : MonoBehaviour {
     }
 
     [PunRPC]
-    public void Test()
+    public void SequencePhoton()
     {
         print("Sequence started");
         reduceRiseColor = !reduceRiseColor;
