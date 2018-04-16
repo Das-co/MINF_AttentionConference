@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 114199420901903048}
   m_Layer: 0
   m_Name: RemoteAvatar
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1528,6 +1528,7 @@ MonoBehaviour:
   HandLeft: {fileID: 114980679938395296}
   HandRight: {fileID: 114331136794258608}
   RecordPackets: 0
+  UseSDKPackets: 1
   StartWithControllers: 0
   FirstPersonLayer:
     layerIndex: 0
@@ -1540,6 +1541,7 @@ MonoBehaviour:
   SurfaceShaderSelfOccluding: {fileID: 4800000, guid: 10513ef587704324487f3061a7e6699d,
     type: 3}
   SurfaceShaderPBS: {fileID: 4800000, guid: d7662dbac0646464a9b4a48e93989adb, type: 3}
+  SurfaceShaderPBSV2: {fileID: 0}
   oculusUserID: 0
   CombineMeshes: 0
   AssetsDoneLoading:
@@ -1573,6 +1575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c198a42a3843ca04fa633b60f428ff51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mode: 0
 --- !u!114 &114763815452778134
 MonoBehaviour:
   m_ObjectHideFlags: 1

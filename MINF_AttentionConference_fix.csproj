@@ -238,6 +238,7 @@
     <Compile Include="Assets\_MK\MKXRayFree\Demo\Code\MKXRayDemoMouseOrbitImproved.cs" />
     <Compile Include="Assets\_MK\MKXRayFree\MKXRayFreeMaterialHelper.cs" />
     <Compile Include="Assets\Assets for Roomcreation\_MK\MKGlassFree\MKGlassFreeMaterialHelper.cs" />
+    <Compile Include="Assets\GetOculusPosition.cs" />
     <Compile Include="Assets\MovingWallsAssets\Scripts\BlinkingScript.cs" />
     <Compile Include="Assets\MovingWallsAssets\Scripts\RobotMover.cs" />
     <Compile Include="Assets\MovingWallsAssets\Scripts\RoomMoveScript.cs" />
