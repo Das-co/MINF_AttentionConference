@@ -2177,6 +2177,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 255197133}
+--- !u!4 &260463124 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4577223424832290, guid: ae0134143075bfe4693b347ccc80b35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1031119103}
 --- !u!1001 &267111594
 Prefab:
   m_ObjectHideFlags: 0
@@ -6996,7 +7001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4150442388169860, guid: ae0134143075bfe4693b347ccc80b35e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224258081188734344, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
@@ -7986,7 +7991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1101754934
 Prefab:
@@ -9522,7 +9527,7 @@ Transform:
   m_Children:
   - {fileID: 1085904716}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1301995601
 AudioSource:
@@ -10422,6 +10427,67 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c624ad76a8d54d8499226630e586c01b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1469850831 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1657506905095352, guid: ae0134143075bfe4693b347ccc80b35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1031119103}
+--- !u!114 &1469850833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469850831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f6c0da1e5684e4c8c03acfadf2f77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUIPointerElementEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_UIPointer_UnityEvents+UIPointerEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUIPointerElementExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_UIPointer_UnityEvents+UIPointerEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUIPointerElementClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_UIPointer_UnityEvents+UIPointerEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUIPointerElementDragStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_UIPointer_UnityEvents+UIPointerEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUIPointerElementDragEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_UIPointer_UnityEvents+UIPointerEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnActivationButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_ControllerEvents_UnityEvents+ControllerInteractionEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnActivationButtonReleased:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_ControllerEvents_UnityEvents+ControllerInteractionEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnSelectionButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_ControllerEvents_UnityEvents+ControllerInteractionEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnSelectionButtonReleased:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_ControllerEvents_UnityEvents+ControllerInteractionEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!4 &1477469863 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4763563927896296, guid: c624ad76a8d54d8499226630e586c01b,
@@ -12405,15 +12471,15 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1746329072}
-  m_LocalRotation: {x: -0.048002515, y: 0.8314828, z: -0.07274544, w: -0.54867136}
-  m_LocalPosition: {x: 2.928, y: 1.2209997, z: 3.2661278}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05000016}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.050000027, y: 0.05000001, z: 0.05000019}
   m_Children:
   - {fileID: 2074684366}
   - {fileID: 1601431876}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 10, y: -113.161, z: 0}
+  m_Father: {fileID: 260463124}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!1 &1760427929
 GameObject:
   m_ObjectHideFlags: 0
@@ -15108,17 +15174,17 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2074684365}
-  m_LocalRotation: {x: 0.048002515, y: -0.8314828, z: 0.07274544, w: -0.54867136}
-  m_LocalPosition: {x: -40, y: 64.4, z: 24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.2164396, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: -3, y: 20, z: 4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 209780244}
   m_Father: {fileID: 1746329074}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -40, y: 64.4}
+  m_AnchoredPosition: {x: -3, y: 20}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2074684367
@@ -15506,11 +15572,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2127279784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 4}
+  m_LocalPosition: {x: 0, y: -1, z: 5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2133344363
 Prefab:
