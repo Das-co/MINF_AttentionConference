@@ -66,6 +66,8 @@ public class PhotonController : PunBehaviour {
                     go = Instantiate (LocalAvatarPrefab, TrackingSpace);
                     print("spawn as presenter");
                     go.tag = "Target";
+                    vRCam.transform.position = TrackingSpace.position;
+
                 }
                 else {
                     go = Instantiate(LocalAvatarPrefab, RemoteAvatarSlot);
@@ -77,13 +79,13 @@ public class PhotonController : PunBehaviour {
 				Debug.Log ("[PhotonController]: Instantiated remote avatar");
 				if (RemoteAvatarPrefab) {
                     if (master == false) {
-                        go = Instantiate(RemoteAvatarPrefab, RemoteAvatarSlot);
+                        go = Instantiate(RemoteAvatarPrefab, TrackingSpace);
                         go.tag = "Target";
                         print("spawn as audience");
-                        vRCam.transform.position = RemoteAvatarSlot.position;
+                        //vRCam.transform.position = RemoteAvatarSlot.position;
                     }
                     else {
-                        go = Instantiate(RemoteAvatarPrefab, TrackingSpace);
+                        go = Instantiate(RemoteAvatarPrefab, RemoteAvatarSlot);
                         go.tag = "Player";
                         print("spawn as audience");
                     }
