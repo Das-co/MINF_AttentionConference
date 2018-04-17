@@ -23,6 +23,7 @@ public class RoomMoveScript : MonoBehaviour {
         
     }
 
+    [PunRPC]
     public void MoveRoom()
     {
         if (RoomState == 0)

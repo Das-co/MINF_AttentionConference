@@ -54,4 +54,5 @@ MonoBehaviour:
   - SequencePhoton
   - AmbientLightFalse
   - AmbientLightTrue
+  - MoveRoom
   DisableAutoOpenWizard: 1

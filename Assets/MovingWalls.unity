@@ -2476,6 +2476,8 @@ MonoBehaviour:
   - {fileID: 334572493}
   - {fileID: 334572489}
   - {fileID: 334572491}
+  - {fileID: 334572488}
+  - {fileID: 334572492}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 1
   instantiationId: 1
@@ -3482,7 +3484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: 3eb8d87e593fb0d43bc97f0e3571f24c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.019
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: 3eb8d87e593fb0d43bc97f0e3571f24c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7104,7 +7106,7 @@ Prefab:
     - target: {fileID: 224685927211300610, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1138
+      value: 649
       objectReference: {fileID: 0}
     - target: {fileID: 224685927211300610, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
@@ -7732,9 +7734,10 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1093196936}
   - {fileID: 1093196933}
   - {fileID: 1093196939}
+  - {fileID: 1093196937}
+  - {fileID: 1093196936}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 2
   instantiationId: 2
@@ -15161,7 +15164,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2127279784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.035, y: -0.139, z: 2.7}
+  m_LocalPosition: {x: 5.035, y: -1, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
