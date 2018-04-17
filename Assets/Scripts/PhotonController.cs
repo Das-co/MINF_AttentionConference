@@ -60,19 +60,26 @@ public class PhotonController : PunBehaviour {
 
 			if (PhotonNetwork.player.ID == senderid) {
 				Debug.Log ("[PhotonController]: Setup local avatar for sending");
-				go = Instantiate (LocalAvatarPrefab, TrackingSpace);
-                if (master == true)
+				
+                if (master == true) {
                     go.tag = "Target";
-                else
+                    go = Instantiate (LocalAvatarPrefab, TrackingSpace);
+                }
+                else {
                     go.tag = "Player";
-			} else {
+                    go = Instantiate(LocalAvatarPrefab, RemoteAvatarSlot);
+                }
+            } else {
 				Debug.Log ("[PhotonController]: Instantiated remote avatar");
 				if (RemoteAvatarPrefab) {
-					go = Instantiate (RemoteAvatarPrefab, RemoteAvatarSlot);
-                    if (master == false)
+                    if (master == false) {
                         go.tag = "Target";
-                    else
+                        go = Instantiate(RemoteAvatarPrefab, RemoteAvatarSlot);
+                    }
+                    else {
                         go.tag = "Player";
+                        go = Instantiate(RemoteAvatarPrefab, TrackingSpace);
+                    }
                 }
 			}
 
