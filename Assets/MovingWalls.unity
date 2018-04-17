@@ -1096,7 +1096,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334572489}
-        m_MethodName: PlayJump
+        m_MethodName: SendJump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2028,7 +2028,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334572489}
-        m_MethodName: PlayPunch
+        m_MethodName: SendPunch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7111,7 +7111,7 @@ Prefab:
     - target: {fileID: 224685927211300610, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 224685927211300610, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
@@ -7121,7 +7121,7 @@ Prefab:
     - target: {fileID: 224685927211300610, guid: ae0134143075bfe4693b347ccc80b35e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1853549703052944, guid: ae0134143075bfe4693b347ccc80b35e, type: 2}
       propertyPath: m_IsActive
@@ -7734,10 +7734,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1093196933}
-  - {fileID: 1093196939}
   - {fileID: 1093196937}
-  - {fileID: 1093196936}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 2
   instantiationId: 2
@@ -7749,7 +7746,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093196932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
@@ -10847,8 +10844,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1099553168}
-        m_MethodName: MoveRoom
+      - m_Target: {fileID: 1093196937}
+        m_MethodName: SendRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11293,7 +11290,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334572489}
-        m_MethodName: PlayIdle
+        m_MethodName: SendIdle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11712,7 +11709,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334572489}
-        m_MethodName: PlayWalk
+        m_MethodName: SendWalk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14503,7 +14500,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334572489}
-        m_MethodName: PlaySprint
+        m_MethodName: SendSprint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,6 +7,8 @@ public class RoomMoveScript : MonoBehaviour {
 
     float RoomState =0;
     public Animator anim;
+    bool roomBool;
+    bool moveBool;
    
 	
 	void Start ()
@@ -23,12 +25,20 @@ public class RoomMoveScript : MonoBehaviour {
         
     }
 
+    public void SendRoom(/*bool boolean*/) {
+        //roomBool = boolean;
+        GetComponent<PhotonView>().RPC("MoveRoom", PhotonTargets.All);
+    }
+
+
     [PunRPC]
     public void MoveRoom()
     {
+        //moveBool = roomBool; 
         if (RoomState == 0)
         {
             anim.Play("Gerüst_Rotate");
+            //anim.SetBool("Rotate", true);
             RoomState = 1;
         }
         if (RoomState == 1)
