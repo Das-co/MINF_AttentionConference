@@ -15,6 +15,7 @@ public enum NetworkEventCodes : byte {
 public class PhotonController : PunBehaviour {
 	public string GameVersion;
 	public Transform RemoteAvatarSlot;
+    public GameObject vRCam;
 
 	public byte MaxPlayers = 2;
 
@@ -62,23 +63,29 @@ public class PhotonController : PunBehaviour {
 				Debug.Log ("[PhotonController]: Setup local avatar for sending");
 				
                 if (master == true) {
-                    go.tag = "Target";
                     go = Instantiate (LocalAvatarPrefab, TrackingSpace);
+                    print("spawn as presenter");
+                    go.tag = "Target";
                 }
                 else {
-                    go.tag = "Player";
                     go = Instantiate(LocalAvatarPrefab, RemoteAvatarSlot);
+                    go.tag = "Player";
+                    print("spawn as audience");
+                    vRCam.transform.position = RemoteAvatarSlot.position;
                 }
             } else {
 				Debug.Log ("[PhotonController]: Instantiated remote avatar");
 				if (RemoteAvatarPrefab) {
                     if (master == false) {
-                        go.tag = "Target";
                         go = Instantiate(RemoteAvatarPrefab, RemoteAvatarSlot);
+                        go.tag = "Target";
+                        print("spawn as audience");
+                        vRCam.transform.position = RemoteAvatarSlot.position;
                     }
                     else {
-                        go.tag = "Player";
                         go = Instantiate(RemoteAvatarPrefab, TrackingSpace);
+                        go.tag = "Player";
+                        print("spawn as audience");
                     }
                 }
 			}
