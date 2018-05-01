@@ -7,10 +7,9 @@ public class LeadView : MonoBehaviour {
     [SerializeField]
     private GameObject target;
     [SerializeField]
-    private GameObject imageArrow;
+    private GameObject arrow;
     [SerializeField]
     private Vector3 v3Pos;
-    private GameObject clone;
     [SerializeField]
     private bool cntrlpanel;
     [SerializeField]
@@ -26,7 +25,7 @@ public class LeadView : MonoBehaviour {
 
     private void Start()
     {
-        imageArrow.SetActive(cntrlpanel);
+        arrow.SetActive(cntrlpanel);
     }
 
 
@@ -35,12 +34,14 @@ public class LeadView : MonoBehaviour {
         if(target==null)
             target = GameObject.FindGameObjectWithTag("Target");
 
-        imageArrow.SetActive(cntrlpanel);
+        arrow.SetActive(cntrlpanel);
 
         if (cntrlpanel == true)
         {
             PositionArrow();
         }
+
+        
     }
 
     public void ChangeBoolArrow(bool boolean)
@@ -79,26 +80,37 @@ public class LeadView : MonoBehaviour {
 
         if (v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f&&v3Pos.z > 0.0f)
         {
+            arrow.SetActive(false);
             //print("In Cam");
-            imageArrow.GetComponent<Image>().enabled = false;
+            //arrow.GetComponent<Image>().enabled = false;
             return;
+            
         }
         else 
         {
-            imageArrow.GetComponent<Image>().enabled = true;
-
+            //arrow.GetComponent<Image>().enabled = true;
+            arrow.SetActive(true);
         }
 
+        //When UI-Overlay
+        //dir = target.transform.position - transform.position;
+        //angle = Mathf.Atan2(dir.x, dir.z);
+        //transform.eulerAngles = new Vector3(0, 0, angle);
 
-        dir = target.transform.position - transform.position;
-        angle = Mathf.Atan2(dir.x, dir.z);
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        //var targetPosLocal = Camera.main.transform.InverseTransformPoint(target.transform.position);
+        //var targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg /*- 90*/;
 
-        var targetPosLocal = Camera.main.transform.InverseTransformPoint(target.transform.position);
-        var targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg /*- 90*/;
+        //transform.eulerAngles = new Vector3(0, 0, targetAngle);
+        //transform.eulerAngles = new Vector3(0, 0, 0);
 
-        transform.eulerAngles = new Vector3(0, 0, targetAngle);
-
-        //clone.transform.position = new Vector2(100,100);
+        //Worldspace
+        //arrow.transform.eulerAngles = new Vector3(arrow.transform.position.x, arrow.transform.position.y + 90, arrow.transform.position.z);
+        Vector3 targetDir = target.transform.position - arrow.transform.position;
+        /*arrow.transform.position*/
+        Vector3 newDir = Vector3.RotateTowards(arrow.transform.forward, targetDir, 20 * Time.deltaTime, 5.0f);
+        Debug.DrawRay(arrow.transform.position, newDir, Color.red);
+        //print(newDir);
+        arrow.transform.rotation = Quaternion.LookRotation(newDir);
+        //transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }

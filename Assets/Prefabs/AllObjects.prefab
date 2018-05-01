@@ -7463,12 +7463,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameVersion: 1.0
   RemoteAvatarSlot: {fileID: 4868111391734460}
+  vRCam: {fileID: 0}
   MaxPlayers: 2
   TrackingSpace: {fileID: 4762666721631918}
   LocalAvatarPrefab: {fileID: 1031500323677796, guid: 8196cace41fa37744b70d3bdea96a10f,
     type: 2}
   RemoteAvatarPrefab: {fileID: 1431314729189998, guid: 02645d9a7ff08cf438513f23a150bc68,
     type: 2}
+  master: 0
 --- !u!114 &114709121854962748
 MonoBehaviour:
   m_ObjectHideFlags: 1
