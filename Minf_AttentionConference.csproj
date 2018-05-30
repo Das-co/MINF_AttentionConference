@@ -670,6 +670,7 @@
     <Compile Include="Assets\Scripts\OVRAdapter.cs" />
     <Compile Include="Assets\Scripts\PhotonAvatarView.cs" />
     <Compile Include="Assets\Scripts\PhotonController.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SpotlightBehvior.cs" />
     <Compile Include="Assets\Scripts\WayOfLightControl.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\Scripts\Archery\Arrow.cs" />
